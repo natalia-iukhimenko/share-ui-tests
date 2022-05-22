@@ -1,0 +1,4 @@
+{
+  "baseUrl": "https://www.int.share-now.com",
+  "integrationFolder": "cypress/tests"
+}
