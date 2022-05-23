@@ -1,4 +1,7 @@
 {
   "baseUrl": "https://www.int.share-now.com",
-  "integrationFolder": "cypress/tests"
+  "integrationFolder": "cypress/tests",
+  "env": {
+    "country_code": "de"
+  }
 }
