@@ -1,0 +1,26 @@
+{
+  "de": {
+    "code": "DE",
+    "cities": ["Berlin", "Cologne / Dusseldorf", "Frankfurt", "Hamburg", "Munich", "Münster", "Stuttgart", "Ulm"],
+    "language": "Deutsch",
+    "mobileCode": "49",
+    "termsLink": "/de/en/global-terms/#germany",
+    "rewardsLink": "/SHARE-NOW-Rewards-Terms-and-Conditions-DE-",
+    "contactUsLink": "/de/en/contact/#contact-de",
+    "imprintLink": "/de/en/legal#imprint",
+    "privacyPolicyLink": "/de/en/legal/#privacy",
+    "cookiesLink": "/de/en/legal#cookies"
+  },
+  "it": {
+    "code": "IT",
+    "cities": ["Florence", "Milan", "Rome", "Turin"],
+    "language": "Italiano",
+    "mobileCode": "39",
+    "termsLink": "/it/en/global-terms/#italy",
+    "rewardsLink": "/SHARE-NOW-Rewards-Terms-and-Conditions-IT-",
+    "contactUsLink": "/it/en/contact/#contact-it",
+    "imprintLink": "/it/en/legal#imprint",
+    "privacyPolicyLink": "/it/en/legal#privacy",
+    "cookiesLink": "/it/en/legal#cookies"
+  }
+}
