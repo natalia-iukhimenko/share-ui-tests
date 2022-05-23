@@ -1,4 +1,5 @@
 class RegistrationPage {
+    // region properties
     get #countryDropdown() {
         return cy.get("select[name = 'drivingCountryIsoCode']");
     }
@@ -98,7 +99,9 @@ class RegistrationPage {
     get #registerNowButton() {
         return cy.get("#registration-save-button");
     }
+    // endregion properties
 
+    // region actions
     selectCountry(countryCode) {
         this.#countryDropdown.select(countryCode);
         return this;
@@ -218,6 +221,37 @@ class RegistrationPage {
     doRegister() {
         this.#registerNowButton.click();
     }
+    // endregion actions
 
+    // region checks
+    checkSelectedCountry(expectedValue) {
+        this.#countryDropdown.should("have.value", expectedValue);
+        return this;
+    }
+
+    checkAvailableCities(expectedValues) {
+        this.#cityDropdown.find("option")
+            .filter((idx, el) => el.getAttribute("value").length !== 0)
+            .each((item, index, list) => {
+                cy.wrap(item).should("have.text", expectedValues[index]);
+            })
+        return this;
+    }
+
+    checkAvailableLanguage(expectedValue) {
+        this.#languageDropdown.find("option").should("contain.text", expectedValue);
+        return this;
+    }
+
+    checkSelectedMobileCode(expectedValue) {
+        this.#mobilePhoneCodeDropdown.should("have.value", expectedValue);
+        return this;
+    }
+
+    checkPageHasLink(expectedLink) {
+        cy.get(`a[href *= "${expectedLink}"]`).should("be.visible");
+        return this;
+    }
+    // endregion checks
 }
 export default new RegistrationPage();
