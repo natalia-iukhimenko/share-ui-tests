@@ -11,18 +11,6 @@
     "privacyPolicyLink": "/de/en/legal/#privacy",
     "cookiesLink": "/de/en/legal#cookies"
   },
-  "it": {
-    "code": "IT",
-    "cities": ["Florence", "Milan", "Rome", "Turin"],
-    "language": "Italiano",
-    "mobileCode": "39",
-    "termsLink": "/it/en/global-terms/#italy",
-    "rewardsLink": "/SHARE-NOW-Rewards-Terms-and-Conditions-IT-",
-    "contactUsLink": "/it/en/contact/#contact-it",
-    "imprintLink": "/it/en/legal#imprint",
-    "privacyPolicyLink": "/it/en/legal#privacy",
-    "cookiesLink": "/it/en/legal#cookies"
-  },
   "fr": {
     "code": "FR",
     "cities": ["Paris"],
