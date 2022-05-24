@@ -15,3 +15,7 @@ export function generatePin(length = 4) {
 export function generatePhoneNumber() {
     return faker.random.numeric(11);
 }
+
+export function generateZipCode() {
+    return faker.random.numeric(5);
+}

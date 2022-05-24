@@ -41,10 +41,10 @@ describe("UI tests for registration process", () => {
             .selectBirthDate(1,1, 1)
             .setBirthPlace(faker.address.country())
             .setStreet(faker.address.streetName())
-            .setZipCode(faker.address.zipCode())
+            .setZipCode(dataGenerator.generateZipCode())
             .setCity(faker.address.cityName())
             .setMobilePhoneNumber(dataGenerator.generatePhoneNumber())
-            .tickTermsAndConditionsCheckbox()
+            .tickAllRequiredCheckboxes()
             .doRegister();
             paymentPage.checkUrl()
                 .checkHeaderDisplayed();
