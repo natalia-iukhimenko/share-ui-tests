@@ -80,20 +80,8 @@ class RegistrationPage {
         return cy.get("input[name = 'promotionCode']");
     }
 
-    get #termsAndConditionsCheckbox() {
-        return cy.get("input[id ^= 'camelot-checkbox']").eq(0);
-    }
-
-    get #rewardsTermsAndConditionsCheckbox() {
-        return cy.get("input[id ^= 'camelot-checkbox']").eq(1);
-    }
-
-    get #discountsSubscriptionCheckbox() {
-        return cy.get("input[id ^= 'camelot-checkbox']").eq(2);
-    }
-
-    get #offersSubscriptionCheckbox() {
-        return cy.get("input[id ^= 'camelot-checkbox']").eq(3);
+    get #requiredCheckboxes() {
+        return cy.get("input[type = 'checkbox'][required]");
     }
 
     get #registerNowButton() {
@@ -103,9 +91,13 @@ class RegistrationPage {
 
     // region actions
     selectCity(name) {
-        cy.url().then(url => {
-            this.#cityDropdown.select(name);
-            cy.url().should("not.eq", url);
+        this.#cityDropdown.then(($dropdown) => {
+            if ($dropdown.text() !== name) {
+                cy.url().then(url => {
+                    this.#cityDropdown.select(name);
+                    cy.url().should("not.eq", url);
+                })
+            }
         })
         return this;
     }
@@ -198,8 +190,8 @@ class RegistrationPage {
         return this;
     }
 
-    tickTermsAndConditionsCheckbox() {
-        this.#termsAndConditionsCheckbox.check({force: true});
+    tickAllRequiredCheckboxes() {
+        this.#requiredCheckboxes.check({force: true});
         return this;
     }
 
