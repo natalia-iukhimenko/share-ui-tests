@@ -19,5 +19,5 @@ npm run cy:run
 
 4. By default, the tests are executed on "german" version of the application. To run them for France, execute
 ```sh
-npm run cy:run -- --env country_code=fr --browser=firefox
+npm run cy:run --env country_code=fr --browser=firefox
 ```
