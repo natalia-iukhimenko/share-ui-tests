@@ -61,7 +61,7 @@ class RegistrationPage {
     }
 
     get #zipCodeInput() {
-        return cy.get("input[name = 'addressAdditionalStreet']");
+        return cy.get("input[name = 'addressZipCode']");
     }
 
     get #cityInput() {
@@ -102,119 +102,104 @@ class RegistrationPage {
     // endregion properties
 
     // region actions
-    selectCountry(countryCode) {
-        this.#countryDropdown.select(countryCode);
-        return this;
-    }
-
     selectCity(name) {
-        this.#cityDropdown.select(name);
-        return this;
-    }
-
-    selectLanguage(name) {
-        this.#languageDropdown.select(name);
+        cy.url().then(url => {
+            this.#cityDropdown.select(name);
+            cy.url().should("not.eq", url);
+        })
         return this;
     }
 
     setEmail(email) {
-        this.#emailInput.clear().type(email);
+        cy.wait(500);
+        this.#emailInput.type(email);
         return this;
     }
 
     setPassword(password) {
-        this.#passwordInput.clear().type(password);
+        this.#passwordInput.type(password);
         return this;
     }
 
     setPin(pin) {
-        this.#pinInput.clear().type(pin);
+        this.#pinInput.type(pin);
         return this;
     }
 
-    selectSalutation(value) {
-        this.#salutationDropdown.select(value);
+    setCredentials(email, password, pin) {
+        return this.setEmail(email)
+            .setPassword(password)
+            .setPin(pin);
+    }
+
+    selectSalutation(optionIndex) {
+        this.#salutationDropdown.select(optionIndex);
+        return this;
     }
 
     setFirstName(firstName) {
-        this.#firstNameInput.clear().type(firstName);
+        this.#firstNameInput.type(firstName);
         return this;
     }
 
     setLastName(lastName) {
-        this.#lastNameInput.clear().type(lastName);
+        this.#lastNameInput.type(lastName);
         return this;
+    }
+
+    setFullName(firstName, lastName) {
+        return this.setFirstName(firstName)
+            .setLastName(lastName);
     }
 
     selectBirthDay(day) {
         this.#birthDayDropdown.select(day);
+        return this;
     }
 
     selectBirthMonth(month) {
         this.#birthMonthDropdown.select(month);
+        return this;
     }
 
     selectBirthYear(year) {
         this.#birthYearDropdown.select(year);
+        return this;
+    }
+
+    selectBirthDate(day, month, year) {
+        return this.selectBirthDay(day)
+            .selectBirthMonth(month)
+            .selectBirthYear(year);
     }
 
     setBirthPlace(value) {
-        this.#birthPlaceInput.clear().type(value);
+        this.#birthPlaceInput.type(value);
         return this;
     }
 
     setStreet(value) {
-        this.#streetInput.clear().type(value);
-        return this;
-    }
-
-    setAdditionalAddressInfo(value) {
-        this.#additionalAddressInfoInput.clear().type(value);
+        this.#streetInput.type(value);
         return this;
     }
 
     setZipCode(zipCode) {
-        this.#zipCodeInput.clear().type(zipCode);
+        this.#zipCodeInput.type(zipCode);
         return this;
     }
 
     setCity(city) {
-        this.#cityInput.clear().type(city);
-        return this;
-    }
-
-    selectMobilePhoneCode(code) {
-        this.#mobilePhoneCodeDropdown.select(code);
+        this.#cityInput.type(city);
         return this;
     }
 
     setMobilePhoneNumber(number) {
-        this.#mobilePhoneNumberInput.clear().type(number);
-        return this;
-    }
-
-    setPromotionCode(code) {
-        this.#promotionCodeInput.clear().type(code);
+        this.#mobilePhoneNumberInput.type(number);
         return this;
     }
 
     tickTermsAndConditionsCheckbox() {
-        this.#termsAndConditionsCheckbox.click();
-        return this;
-    }
-
-    tickRewardsTermsAndConditionsCheckbox() {
-        this.#rewardsTermsAndConditionsCheckbox.click();
-        return this;
-    }
-
-    tickDiscountsSubscriptionCheckbox() {
-        this.#discountsSubscriptionCheckbox.click();
-        return this;
-    }
-
-    tickOffersSubscriptionCheckbox() {
-        this.#offersSubscriptionCheckbox.click();
+        this.#termsAndConditionsCheckbox.check({force: true});
         return this;
     }
 
