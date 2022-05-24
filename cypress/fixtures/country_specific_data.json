@@ -22,5 +22,17 @@
     "imprintLink": "/it/en/legal#imprint",
     "privacyPolicyLink": "/it/en/legal#privacy",
     "cookiesLink": "/it/en/legal#cookies"
+  },
+  "fr": {
+    "code": "FR",
+    "cities": ["Paris"],
+    "language": "Français",
+    "mobileCode": "33",
+    "termsLink": "/fr/en/global-terms/#france",
+    "rewardsLink": "/SHARE-NOW-Rewards-Terms-and-Conditions-FR-",
+    "contactUsLink": "/fr/en/contact/#contact-fr",
+    "imprintLink": "/fr/en/legal#imprint",
+    "privacyPolicyLink": "/fr/en/legal#privacy",
+    "cookiesLink": "/fr/en/legal#cookies"
   }
 }
